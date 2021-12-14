@@ -1,0 +1,64 @@
+import 'package:flutter/material.dart';
+
+class Homepage extends StatelessWidget {
+  Homepage({Key? key}) : super(key: key);
+
+  final asianCountries = [
+    'China',
+    'Afghanistan',
+    'Armenia',
+    'Azerbaijan',
+    'Bahrain',
+    'Bangladesh',
+    'Bhutan',
+    'Brunei',
+    'Cambodia',
+    'Indonesia',
+    'Georgia',
+    'India',
+    'Iran',
+    'Iraq',
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.red.shade600,
+        title: Text("ListView Builder"),
+        centerTitle: true,
+      ),
+      body: ListView.builder(
+        itemCount: asianCountries.length,
+        itemBuilder: (context, index) {
+          return Column(
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                    shape: BoxShape.rectangle, color: Colors.yellow.shade100),
+                margin: EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(6.0),
+                child: ListTile(
+                  leading: CircleAvatar(
+                    backgroundColor: Colors.red.shade600,
+                    child: Text(
+                      asianCountries[index][0],
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                  title: Text(
+                    asianCountries[index],
+                    style: TextStyle(
+                        color: Colors.black, fontWeight: FontWeight.bold),
+                  ),
+
+                 
+                ),
+              )
+            ],
+          );
+        },
+      ),
+    );
+  }
+}
